@@ -19,6 +19,5 @@ class DBManager {
     public static function getConn(){
         return new PDO('mysql:host=localhost;dbname=finelia_test', 'root', '');
     }
-
 }
 ?>

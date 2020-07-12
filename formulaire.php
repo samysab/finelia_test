@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="matiereInput">Coefficient</label>
-                    <input name="coeff" type="number" class="form-control" id="coeff" placeholder="Votre coefficient">
+                    <input name="coefficientInput" type="number" class="form-control" id="coeff" placeholder="Votre coefficient">
                 </div>
             </div>
             <button type="submit" name="formNoteStudent" class="btn btn-primary">Submit</button>

@@ -88,6 +88,7 @@ class Etudiant
             "nom" => $firs,
             "prenom" => $last
         ));
+        return $GLOBALS['conn']->lastInsertId();
     }
 
 
