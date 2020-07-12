@@ -62,6 +62,7 @@ class Matiere
         $req->execute(array(
             "nom" => $matiere
         ));
+        return $GLOBALS['conn']->lastInsertId();
     }
 
 }

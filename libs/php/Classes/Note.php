@@ -9,6 +9,7 @@ class Note
     private $note;
     private $id_etudiant;
     private $coefficient;
+    private $id_matiere;
 
     /**
      * Note constructor.
@@ -16,14 +17,33 @@ class Note
      * @param $note
      * @param $id_etudiant
      * @param $coefficient
+     * @param $id_matiere
      */
-    public function __construct($id, $note, $id_etudiant, $coefficient)
+    public function __construct($id, $note, $id_etudiant, $coefficient, $id_matiere)
     {
         $this->id = $id;
         $this->note = $note;
         $this->id_etudiant = $id_etudiant;
         $this->coefficient = $coefficient;
+        $this->id_matiere = $id_matiere;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIdMatiere()
+    {
+        return $this->id_matiere;
+    }
+
+    /**
+     * @param mixed $id_matiere
+     */
+    public function setIdMatiere($id_matiere)
+    {
+        $this->id_matiere = $id_matiere;
+    }
+
 
     /**
      * @return mixed
@@ -93,14 +113,15 @@ class Note
     // -------------
     // Methods
 
-    public static function insertNewNote($note, $coeff, $idEtudiant){
-        $sql = "INSERT INTO note(note, coefficient, id_etudiant)
-        VALUES (:note, :coeffi, :id)";
+    public static function insertNewNote($note, $coeff, $idEtudiant, $idMatiere){
+        $sql = "INSERT INTO note(note, coefficient, id_etudiant, id_matiere)
+        VALUES (:note, :coeffi, :id_etu, :id_mati)";
         $req = $GLOBALS['conn']->prepare($sql);
         $req->execute(array(
             "note" => $note,
             "coeffi" => $coeff,
-            "id" => $idEtudiant
+            "id_etu" => $idEtudiant,
+            "id_mati" => $idMatiere
         ));
     }
 }
